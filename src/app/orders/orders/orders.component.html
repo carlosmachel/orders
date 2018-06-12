@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+  <h1>Orders</h1>
+</mat-toolbar>
+<mat-toolbar class="mat-toolbar--right">
+  <button mat-raised-button color="primary">+ Adicionar</button>
+</mat-toolbar>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Status-->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.status}}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Código-->
+  <ng-container matColumnDef="codigo">
+    <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.codigo}}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Valor Total-->
+  <ng-container matColumnDef="valorTotal">
+    <mat-header-cell *matHeaderCellDef> Valor Total </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.valorTotal}}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Data Column-->
+  <ng-container matColumnDef="data">
+    <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.data | date:'dd/MM/yyyy' }}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
