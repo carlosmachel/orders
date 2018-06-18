@@ -5,11 +5,11 @@
   <button mat-raised-button color="primary">+ Adicionar</button>
 </mat-toolbar>
 
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
   <!-- Status-->
   <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
     <mat-cell *matCellDef="let element">
       {{element.status}}
     </mat-cell>
@@ -17,7 +17,7 @@
 
   <!-- Código-->
   <ng-container matColumnDef="codigo">
-    <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Código </mat-header-cell>
     <mat-cell *matCellDef="let element">
       {{element.codigo}}
     </mat-cell>
@@ -25,7 +25,7 @@
 
   <!-- Valor Total-->
   <ng-container matColumnDef="valorTotal">
-    <mat-header-cell *matHeaderCellDef> Valor Total </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Valor Total </mat-header-cell>
     <mat-cell *matCellDef="let element">
       {{element.valorTotal}}
     </mat-cell>
@@ -33,7 +33,7 @@
 
   <!-- Data Column-->
   <ng-container matColumnDef="data">
-    <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
     <mat-cell *matCellDef="let element">
       {{element.data | date:'dd/MM/yyyy' }}
     </mat-cell>

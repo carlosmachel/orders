@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
-
   displayedColumns = ['status', 'codigo', 'valorTotal', 'data'];
-  dataSource = ORDERS;
+  dataSource = new MatTableDataSource<Orders>(ORDERS);
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+
+  constructor() {}
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
   }
-
 }
 
 export interface Orders {
@@ -25,9 +27,9 @@ export interface Orders {
 }
 
 const ORDERS: Orders[] = [
-  { status: 'Pendente', codigo: '002', valorTotal: 100.00, data: new Date() },
-  { status: 'Pendente', codigo: '003', valorTotal: 100.00, data: new Date() },
-  { status: 'Pendente', codigo: '004', valorTotal: 100.00, data: new Date() },
-  { status: 'Pendente', codigo: '005', valorTotal: 100.00, data: new Date() },
-  { status: 'Pendente', codigo: '006', valorTotal: 100.00, data: new Date() }
+  { status: 'Pendente', codigo: '002', valorTotal: 100.0, data: new Date() },
+  { status: 'Concluido', codigo: '003', valorTotal: 100.0, data: new Date() },
+  { status: 'Cancelado', codigo: '004', valorTotal: 100.0, data: new Date() },
+  { status: 'Pendente', codigo: '005', valorTotal: 100.0, data: new Date() },
+  { status: 'Pendente', codigo: '006', valorTotal: 100.0, data: new Date() },
 ];
