@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-orders',
@@ -11,10 +11,11 @@ export class OrdersComponent implements OnInit {
   dataSource = new MatTableDataSource<Orders>(ORDERS);
 
   @ViewChild(MatSort) sort: MatSort;
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor() {}
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 }

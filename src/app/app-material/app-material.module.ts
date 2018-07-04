@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material';
+import { MatSortModule, MatPaginatorModule } from '@angular/material';
 
 @NgModule({
   imports: [CommonModule],
-  exports: [MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule],
+  exports: [MatToolbarModule, MatButtonModule, MatTableModule, MatSortModule, MatPaginatorModule],
   declarations: [],
   providers: [],
 })
